@@ -1,26 +1,26 @@
 # NCSA SQC Part 3 – Memory Forensics Investigation
 
-## Project Overview
+## Overview
 
-This repository documents my analysis of a Windows memory dump completed as part of the NCSA Skills Qualification Check (SQC). The objective of this investigation was to recover volatile system artifacts, identify suspicious activity, and document forensic findings using industry-standard memory analysis techniques.
+This repository documents my investigation of a Windows memory image completed as part of the NCSA Skills Qualification Check (SQC). Using forensic analysis techniques and the Volatility Framework, I analyzed volatile memory to identify running processes, active network connections, browser activity, suspicious search terms, and evidence of potentially malicious tools.
 
-The investigation focused on identifying running processes, active network connections, browser activity, suspicious search terms, and evidence of potential hacking tools.
+This project demonstrates the documentation and investigative process used during a memory forensic examination.
 
 ---
 
 ## Objectives
 
-- Analyze a captured memory image
+- Analyze a Windows memory dump
 - Enumerate active processes
-- Identify network connections
-- Recover Google Chrome browsing history
-- Identify suspicious search activity
+- Identify active network connections
+- Extract Google Chrome browsing history
+- Identify suspicious search terms
 - Locate evidence of hacking tools
-- Document findings in a forensic investigation report
+- Document findings and indicators of compromise (IOCs)
 
 ---
 
-# Skills Demonstrated
+## Skills Demonstrated
 
 - Memory Forensics
 - Digital Forensics
@@ -28,84 +28,72 @@ The investigation focused on identifying running processes, active network conne
 - Threat Hunting
 - Process Analysis
 - Network Analysis
-- Artifact Recovery
-- Linux
+- Volatility Framework
 - Kali Linux
-- Volatility Framework
-- Documentation
 - Evidence Collection
+- Technical Documentation
 
 ---
 
-# Lab Environment
+## Tools Used
 
-| Component | Description |
-|-----------|-------------|
-| Operating System | Kali Linux |
-| Memory Analysis | Volatility Framework |
-| Shell | Bash |
-| Evidence | Windows Memory Dump |
-
----
-
-# Investigation Workflow
-
-1. Identify the memory image profile
-2. Enumerate running processes
-3. Analyze active network connections
-4. Recover browser artifacts
-5. Identify suspicious search terms
-6. Locate evidence of hacking tools
-7. Document Indicators of Compromise (IOCs)
+| Tool | Purpose |
+|------|---------|
+| Volatility 2/3 | Memory analysis |
+| Kali Linux | Investigation platform |
+| Linux Terminal | Command-line analysis |
+| Strings/Grep | Artifact searching |
 
 ---
 
-# Repository Structure
+## Investigation Workflow
 
-```
-.
-├── report/
-├── investigation/
-├── evidence/
-│   ├── screenshots/
-│   ├── recovered-artifacts/
-│   └── logs/
-├── tools/
-└── docs/
+1. Acquire the memory image
+2. Identify the operating system profile
+3. Enumerate running processes
+4. Analyze active network connections
+5. Recover browser history
+6. Identify suspicious user activity
+7. Search for evidence of hacking tools
+8. Document findings
+
+---
+
+## Repository Structure
+
+```text
+report/
+investigation/
+evidence/
+tools/
+docs/
 ```
 
 ---
 
-# Evidence
+## Key Findings
 
-Evidence collected during the investigation includes:
+- Process enumeration completed
+- Active network connections identified
+- Browser history successfully recovered
+- Suspicious search activity documented
+- Evidence collected for forensic reporting
 
-- Volatility command output
-- Process listings
-- Network connection analysis
-- Browser history artifacts
-- Screenshots
-- Recovered files
-
----
-
-# Lessons Learned
-
-This investigation reinforced the importance of volatile memory analysis during incident response. Memory artifacts can reveal active processes, network communications, and user activity that may no longer exist on disk.
+*(Detailed findings are documented in the report directory.)*
 
 ---
 
-# References
+## Lessons Learned
 
-- Volatility Framework
-- NCSA Skills Qualification Check
+This investigation reinforced the importance of memory forensics during incident response. Volatile memory contains valuable evidence that may not exist on disk, making memory analysis an essential component of modern digital forensic investigations.
 
 ---
 
 ## Author
 
-Anthony Faircloth
+**Anthony Faircloth**
 
-Cybersecurity Portfolio
+Aspiring Cybersecurity Analyst
 
-GitHub: https://github.com/AF-Cyberlabs
+- GitHub: https://github.com/AF-Cyberlabs
+- LinkedIn: https://www.linkedin.com/in/anthony-faircloth-a2746649
