@@ -132,3 +132,33 @@ These artifacts were preserved and correlated with additional evidence sources i
 ### Analyst Notes
 
 Browser artifacts alone do not prove malicious intent. Findings were documented as indicators requiring correlation with additional forensic evidence.
+
+
+## Chrome Download Artifact Analysis
+
+### Artifact
+
+* **Database:** ChromeHistory.db
+* **Table Analyzed:** downloads
+* **Tool:** SQLite3
+
+### Recovered Downloads
+
+| File                             | Source URL            | Analysis Notes                                          |
+| -------------------------------- | --------------------- | ------------------------------------------------------- |
+| hashcat-6.2.5 (1).7z             | hashcat.net           | Password recovery/cracking utility downloaded           |
+| nmap-7.92-setup (1).exe          | nmap.org              | Network scanning/security assessment utility downloaded |
+| FileZilla_3.60.2_win32-setup.exe | filezilla-project.org | File transfer client downloaded                         |
+| MOCK_DATA.csv                    | mockaroo.com          | Test data file downloaded                               |
+
+### Findings
+
+The Chrome download database confirmed that multiple security-related tools were downloaded to the user profile:
+
+* Hashcat
+* Nmap
+* FileZilla
+
+These artifacts were correlated with previously recovered browser history entries showing searches and visits related to hacking tutorials and security tools.
+
+The presence of security tools alone does not establish malicious activity. Additional correlation with memory artifacts, file system artifacts, and network evidence is required to determine user intent.
