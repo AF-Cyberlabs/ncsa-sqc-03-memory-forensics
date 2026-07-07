@@ -97,3 +97,38 @@ Aspiring Cybersecurity Analyst
 
 - GitHub: https://github.com/AF-Cyberlabs
 - LinkedIn: https://www.linkedin.com/in/anthony-faircloth-a2746649
+
+## Chrome Browser History Analysis
+
+### Artifact
+
+* **File:** ChromeHistory.db
+* **Location:** Recovered from NCSA-SQC disk image
+* **Analysis Tool:** SQLite3
+
+### Evidence Recovered
+
+Browser history analysis identified multiple entries of interest:
+
+| Timestamp | Activity                                     | URL/Source                  |
+| --------- | -------------------------------------------- | --------------------------- |
+| N/A       | Tor Browser download page accessed           | tor-browser.en.softonic.com |
+| N/A       | Search for "hacking tutorials"               | Google Search               |
+| N/A       | Hacking tutorial website accessed            | hackingtutorials.org        |
+| N/A       | Nmap security scanner download page accessed | nmap.org                    |
+| N/A       | FileZilla Client download page accessed      | filezilla-project.org       |
+| N/A       | Search for "NCSA Evidence{NCSA 2022}"        | Google Search               |
+
+### Findings
+
+The recovered Chrome history shows activity related to cybersecurity tools, including Nmap and FileZilla, as well as searches related to hacking tutorials. A search query referencing "NCSA Evidence{NCSA 2022}" was also identified, which directly correlates with the forensic investigation scenario.
+
+These artifacts were preserved and correlated with additional evidence sources including:
+
+* Memory dump analysis
+* Disk image analysis
+* Network capture analysis
+
+### Analyst Notes
+
+Browser artifacts alone do not prove malicious intent. Findings were documented as indicators requiring correlation with additional forensic evidence.
