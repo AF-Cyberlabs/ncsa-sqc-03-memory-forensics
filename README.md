@@ -228,3 +228,23 @@ This activity was corroborated by:
 ### Conclusion
 
 Multiple independent forensic artifacts demonstrate that Nmap was downloaded and subsequently executed. The recovered console output indicates attempted UDP network reconnaissance within a private network; however, the recovered output shows that the scans did not complete successfully.
+
+
+## Network Traffic Analysis
+
+### Artifact
+
+* **File:** `suspicious_activity.pcapng`
+* **Tool:** Wireshark
+
+### Findings
+
+Analysis of the packet capture identified TCP communications between `10.0.2.19` and `10.0.2.20` over **TCP port 21 (FTP)**.
+
+This network activity correlates with browser artifacts showing the download of the FileZilla FTP client. While the packet capture confirms communication with an FTP service, it does not by itself identify the specific client application used.
+
+### Correlated Evidence
+
+* Browser history contained visits to the FileZilla download page.
+* Browser download history confirmed retrieval of the FileZilla installer.
+* Packet capture showed FTP communication over TCP port 21.
