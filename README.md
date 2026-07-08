@@ -162,3 +162,69 @@ The Chrome download database confirmed that multiple security-related tools were
 These artifacts were correlated with previously recovered browser history entries showing searches and visits related to hacking tutorials and security tools.
 
 The presence of security tools alone does not establish malicious activity. Additional correlation with memory artifacts, file system artifacts, and network evidence is required to determine user intent.
+
+
+## Command History Analysis
+
+### Artifact
+
+* **Source:** Memory image (`NCSA-SQC-MEMDUMP-01.raw`)
+* **Tool:** Volatility 2.6.1 (`cmdscan` plugin)
+
+### Recovered Commands
+
+| Command                | Description                                               |
+| ---------------------- | --------------------------------------------------------- |
+| `nmap -sU 192.168.0.1` | UDP scan targeting a local network device.                |
+| `ipconfig`             | Display Windows network configuration.                    |
+| `ifconfig`             | Network interface command recovered from command history. |
+| `nmap -sU 172.16.0.5`  | UDP scan targeting a private network host.                |
+
+### Analysis
+
+Recovered command history indicates that Nmap was used to perform UDP scans against private IP addresses within local network ranges. This finding correlates with browser artifacts showing that the Nmap installer was downloaded.
+
+The recovered commands provide evidence of network reconnaissance activity within the lab environment.
+
+
+## Command Execution Analysis
+
+### Artifact
+
+* **Source:** `NCSA-SQC-MEMDUMP-01.raw`
+* **Tool:** Volatility 2.6.1 (`consoles` plugin)
+
+### Recovered Console Activity
+
+Recovered console history showed the following commands:
+
+```text
+nmap -sU 192.168.0.1
+ifconfig
+ipconfig
+nmap -sU 172.16.0.5
+```
+
+### Console Output
+
+The recovered console output showed:
+
+* An attempted UDP scan against `192.168.0.1` that failed because no valid route was available.
+* An unsuccessful attempt to execute `ifconfig`, which is not a native Windows command.
+* Successful execution of `ipconfig`, revealing:
+
+  * IPv4 Address: `172.16.0.5`
+  * Default Gateway: `172.16.0.1`
+* A second UDP scan targeting `172.16.0.5`, which terminated with an error before completing.
+
+### Correlated Evidence
+
+This activity was corroborated by:
+
+* Chrome browser history showing visits to the Nmap download page.
+* Chrome download records confirming retrieval of the Nmap installer.
+* Active `chrome.exe` and `cmd.exe` processes recovered from memory.
+
+### Conclusion
+
+Multiple independent forensic artifacts demonstrate that Nmap was downloaded and subsequently executed. The recovered console output indicates attempted UDP network reconnaissance within a private network; however, the recovered output shows that the scans did not complete successfully.
